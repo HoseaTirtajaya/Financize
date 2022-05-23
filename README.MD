@@ -10,8 +10,6 @@ Data is stored locally on device in [PouchDB](https://pouchdb.com/) database and
 
 Implemented with [React](https://github.com/facebook/react) and [Semantic UI](https://github.com/Semantic-Org/Semantic-UI-React)
 
-## License
-Our software is distributed under the MIT License.
 
 ## Installation
 
