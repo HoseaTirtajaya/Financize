@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import throttle from 'lodash/throttle';
 import routes from '../router/routes';
 import SignIn from 'features/user/containers/SignIn';
-import InitialSetup from './InitialSetup';
+import LoginRegisterPage from './LoginRegisterPage';
 import SidebarMenu from './SidebarMenu';
 import Header from '../components/Header';
 import DemoNotice from './DemoNotice';
@@ -39,7 +39,7 @@ class App extends React.Component {
         <Switch>
           <Route path="/auth" exact={true} component={SignIn} />
           {!this.props.isSetupComplete ? (
-            <Route component={InitialSetup} />
+            <Route component={LoginRegisterPage} />
           ) : (
             <Route render={this.renderNavigationRoutes} />
           )}

@@ -9,7 +9,8 @@ const financialRouter = require("./financialRouter");
 //--------------------------------------------
 //Routes
 
-
+Router.use("/api/users", userRouter);
+Router.use("/api/finance", financialRouter);
 
 //--------------------------------------------
 //Redirect for any unknown hits to "/"
