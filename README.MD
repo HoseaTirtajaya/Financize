@@ -1,8 +1,8 @@
-# Money Tracker
+# Financize
 
 **WORK IN PROGRESS**
 
-Money Tracker is an open-source progressive web app that allows you to track your income and expenses.
+Financize is an open-source progressive web app that allows you to track your income and expenses.
 
 This app can work offline on desktop, tablet and mobile.
 
