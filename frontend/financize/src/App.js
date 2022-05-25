@@ -1,10 +1,17 @@
 import React from "react";
 import { Provider } from "react-redux";
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css"
 
 import store from "./store";
-import AllRoutes from "./routes";
+import Login from "./components/Login";
+import Home from "./components/Home";
 
 export default () => 
-  <Provider store={store}>
-    <AllRoutes/>
-  </Provider>
+  <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+      </Routes> 
+  </BrowserRouter>

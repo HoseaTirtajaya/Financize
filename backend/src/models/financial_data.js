@@ -12,12 +12,16 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.belongsTo(models.user, {
-        foreignKey: "dt_user"
+        foreignKey: "user_id"
+      })
+      this.hasMany(models.financial_expenses, {
+        foreignKey: "budget_id"
       })
     }
   }
   financial_data.init({
     amount: DataTypes.DECIMAL,
+    name: DataTypes.STRING,
     type: DataTypes.STRING
   }, {
     sequelize,

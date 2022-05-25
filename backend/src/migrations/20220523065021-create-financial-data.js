@@ -13,6 +13,9 @@ module.exports = {
       amount: {
         type: Sequelize.DECIMAL
       },
+      name: {
+        type: Sequelize.STRING
+      },
       type: {
         type: Sequelize.STRING
       },

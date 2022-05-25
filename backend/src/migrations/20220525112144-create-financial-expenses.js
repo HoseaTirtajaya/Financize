@@ -3,7 +3,7 @@ const sequelize = require("sequelize");
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('financial_tags', {
+    await queryInterface.createTable('financial_expenses', {
       id: {
         type: Sequelize.UUID,
         defaultValue: sequelize.fn("uuid_generate_v4"),
@@ -13,11 +13,14 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      user_id: {
+      amount: {
+        type: Sequelize.DECIMAL
+      },
+      budget_id: {
         type: sequelize.UUID,
         allowNull: false,
         references: {
-          model: 'users',
+          model: 'financial_data',
           key: 'id'
         },
         onUpdate: 'cascade',
@@ -34,6 +37,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('financial_tags');
+    await queryInterface.dropTable('financial_expenses');
   }
 };

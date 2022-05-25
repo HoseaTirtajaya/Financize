@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Card, ProgressBar, Stack } from "react-bootstrap";
 import { CurrencyFormatter } from "../utils";
 
-export default function BudgetCard({name, amount, max, gray}){
+export default function BudgetCard({name, amount, max, gray, onAddExpenseClick, onViewExpenseClick, hideButtons}){
     const classNames = [];
 
     if(amount > max){
@@ -12,7 +12,7 @@ export default function BudgetCard({name, amount, max, gray}){
     }
 
     return (
-        <Card style={{ width: '25rem' }} className={classNames.join(" ")}>
+        <Card className={classNames.join(" ")}>
             <Card.Body>
                 <Card.Title className="d-flex justify-content-between align-items-baseline fw-normal mb-3">
                     <div className="me-2">{name}</div>
@@ -25,10 +25,13 @@ export default function BudgetCard({name, amount, max, gray}){
                 max={max}
                 now={amount}
                 />
-                <Stack direction="horizontal" gap="2" className="mt-4">
-                    <Button variant="outline-primary" className="ms-auto">Expense</Button>
-                    <Button variant="outline-secondary">View Expenses</Button>
-                </Stack>
+                {
+                    !hideButtons && (
+                    <Stack direction="horizontal" gap="2" className="mt-4">
+                        <Button variant="outline-primary" className="ms-auto" onClick={onAddExpenseClick}>Add Expense</Button>
+                        <Button variant="outline-secondary" onClick={onViewExpenseClick}>View Expenses</Button>
+                    </Stack>
+                )}
             </Card.Body>
         </Card>
     )

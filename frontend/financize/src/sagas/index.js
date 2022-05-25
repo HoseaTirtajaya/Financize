@@ -1,9 +1,25 @@
-import { all, takeLatest } from "redux-saga/effects";
+import { call, put, takeLatest } from "redux-saga/effects";
 
-import { Types as AuthTypes } from "../reducers/userReducer";
+import { REQUEST_LOGIN_DATA, receiveLoginData } from "../actions";
+import { loginUser } from "../services/api";
 
-import { login } from "./auth";
+// worker Saga: will be fired on USER_FETCH_REQUESTED actions
+function* loginUserData(action) {
+  try {
+    // do api call
+    const data = yield call(loginUser);
+    yield put(receiveLoginData(data));
+  } catch (e) {
+    console.log(e);
+  }
+}
 
-export default function* rootSaga() {
-  yield all([takeLatest(AuthTypes.LOGIN_REQUEST, login)]);
+/*
+  Alternatively you may use takeLatest.
+  Does not allow concurrent fetches of user. If "USER_FETCH_REQUESTED" gets
+  dispatched while a fetch is already pending, that pending fetch is cancelled
+  and only the latest one will be run.
+*/
+export default function* mySaga() {
+  yield takeLatest(REQUEST_LOGIN_DATA, loginUserData);
 }
