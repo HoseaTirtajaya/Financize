@@ -13,8 +13,9 @@ export default function AddExpenseModal({show, handleClose, props}) {
             let desc = descriptionRef.current.value;
             let amount = parseFloat(amountRef.current.value);
             let budgetId = budgetRef.current.value;
+            const BASE_URL = process.env.REACT_APP_API_URL;
 
-            const response = await fetch("http://localhost:8000/api/finance/add/expenses", {
+            const response = await fetch(`${BASE_URL}/api/finance/add/expenses`, {
                 method: "POST",
                 headers: { 'Content-Type': 'application/json', 'token': token},
                 body: JSON.stringify({ desc: desc, amount: amount, budget_id: budgetId })

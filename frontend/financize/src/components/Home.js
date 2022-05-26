@@ -10,6 +10,7 @@ import ViewExpenseModal from "./ViewExpensesModal";
   
 export default function(props){
   const navigate = useNavigate();
+  const BASE_URL = process.env.REACT_APP_API_URL;
   let [dashboardData, setDashboardData] = useState();
   const [showAddBudgetModal, setShowAddBudgetModal] = useState(false);
   const [showAddExpenseModal, setShowAddExpenseModal] = useState(false);
@@ -32,7 +33,7 @@ export default function(props){
   if(token){
     useEffect(() => {
       try {
-          fetch("http://localhost:8000/api/finance/dashboard", {
+          fetch(`${BASE_URL}/api/finance/dashboard`, {
           method: "GET",
           headers: { 'Content-Type': 'application/json', 'token': tokenData },
           }).then(async (financeData) => {

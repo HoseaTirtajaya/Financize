@@ -3,8 +3,7 @@ import { Button, Modal, Stack } from 'react-bootstrap'
 import { CurrencyFormatter } from '../utils'
 
 export default function ViewExpenseModal({budgetId, handleClose, props}) {
-    // console.log(budgetId, props)
-
+    const BASE_URL = process.env.REACT_APP_API_URL;
     let propData = props ? props.finance.filter(item => item.id === budgetId) : null;
     let titleName = propData && propData.length > 0 ? propData[0].name : "Loading..."
     let showModal = budgetId ? true : false;
@@ -12,7 +11,7 @@ export default function ViewExpenseModal({budgetId, handleClose, props}) {
     
     async function handleDeleteExpense(budgetId){
         try {
-            const response = await fetch(`http://localhost:8000/api/finance/delete/expense/${budgetId}`, {
+            const response = await fetch(`${BASE_URL}/api/finance/delete/expense/${budgetId}`, {
             method: "DELETE",
             headers: { 'Content-Type': 'application/json', token: tokenData},
             });

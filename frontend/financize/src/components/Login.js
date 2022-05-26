@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 export default function (props) {
   let [authMode, setAuthMode] = useState("signin")
   const navigate = useNavigate();
+  const BASE_URL = process.env.REACT_APP_API_URL;
 
   const HandleLoginSubmit = async(event) => {
     // Prevent page reload
@@ -12,7 +13,7 @@ export default function (props) {
     const password = document.forms[0][1].value;
     
     try {
-        const response = await fetch("http://localhost:8000/api/users/login", {
+        const response = await fetch(`${BASE_URL}/api/users/login`, {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -37,7 +38,7 @@ export default function (props) {
         const password = document.forms[0][2].value;
         
         try {
-            const response = await fetch("http://localhost:8000/api/users/register", {
+            const response = await fetch(`${BASE_URL}/api/users/register`, {
               method: "POST",
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ full_name, email, password })

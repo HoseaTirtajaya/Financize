@@ -11,8 +11,9 @@ export default function AddBudgetModal({show, handleClose}) {
             let token = localStorage.getItem("token");
             let title = nameRef.current.value;
             let amount = parseFloat(maxRef.current.value);
+            const BASE_URL = process.env.REACT_APP_API_URL;
 
-            const response = await fetch("http://localhost:8000/api/finance/add/budget", {
+            const response = await fetch(`${BASE_URL}/api/finance/add/budget`, {
                 method: "POST",
                 headers: { 'Content-Type': 'application/json', 'token': token},
                 body: JSON.stringify({ title, amount })
