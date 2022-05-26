@@ -1,0 +1,36 @@
+{
+  "name": "financize",
+  "version": "1.0.0",
+  "description": "This is for SKPI",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HoseaTirtajaya/moneybook-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HoseaTirtajaya/moneybook-app/issues"
+  },
+  "homepage": "https://github.com/HoseaTirtajaya/moneybook-app#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "helmet": "^5.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.19.2",
+    "sequelize-cli": "^6.4.1",
+    "toobusy-js": "^0.5.1"
+  }
+}
