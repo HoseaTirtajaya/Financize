@@ -1,5 +1,4 @@
-# Money Tracker
-
+# Financize
 **WORK IN PROGRESS**
 
 Financize is an open-source web app that allows you to track your income and expenses.
