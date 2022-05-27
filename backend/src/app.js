@@ -61,7 +61,12 @@ app.use((req, res, next) => {
 
     } else {
         let ip = req.ip.substr(7)
-        console.log(`connection from ${req.headers.origin} with ${ip} rejected`)
+        res.header("Access-Control-Allow-Origin", req.headers.origin);
+        res.header("Access-Control-Allow-Headers", "X-Requested-With,origin,authorization, Content-Type,accept,client-sent-security-token,token");
+        res.header('Access-Control-Allow-Credentials', true);
+        res.header("Access-Control-Allow-Methods", "PUT, GET, POST, DELETE, PATCH, OPTIONS");
+        res.header("Access-Control-Expose-Headers", "Content-Security-Policy, Location");
+        next();
         // res.status(404).json({message: "The endpoint you looking for doesn't exist"})
     }
   });
