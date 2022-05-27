@@ -48,6 +48,7 @@ app.use((req, res, next) => {
         "http://localhost:3000",
         "http://localhost:3001",
         "http://127.0.0.1:3000",
+        "http://financize-frontend.herokuapp.com/"
         undefined// buat postman atau insomnia rest api
     ];
     if(whitelist.includes(req.headers.origin)){
